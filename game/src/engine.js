@@ -184,11 +184,11 @@ export function resolveCombat(state) {
     const oCard = lane.opponentCard;
 
     if (pCard && oCard) {
-      // Direct clash
+      // Direct lane clash
       let pDamage = pCard.atk;
       let oDamage = oCard.atk;
 
-      // Suit advantage multipliers
+      // Suit advantage multipliers (1.5x elemental counter)
       if (SUITS[pCard.suit].counter === oCard.suit) {
         pDamage = Math.floor(pDamage * 1.5);
         state.combatLog.push(`Resonance! ${pCard.name} counters ${oCard.name} for ${pDamage} DMG!`);

@@ -1,4 +1,4 @@
-// AetherForge: Arcane Duel - Program Entrypoint (Node 22 / Node 24)
+// AetherForge: Arcane Duel - Program Entrypoint v1.0.1 (Node 22 / Node 24)
 // Hands in the static game, screenshots, and builds the dossier for the judge.
 
 import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
@@ -6,12 +6,13 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-game.ts';
 
+const startTime = Date.now();
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
 mkdirSync(outputDir, { recursive: true });
 
-// Copy game static assets and scripts to output
+// Copy game static assets and scripts to output directory
 const gameSource = join(rootDir, 'game');
 const gameTarget = join(outputDir, 'game');
 cpSync(gameSource, gameTarget, { recursive: true });
@@ -34,4 +35,6 @@ const dossier = buildDossier(outputDir, {
 });
 
 writeFileSync(join(outputDir, 'dossier.json'), dossier);
-console.log('Successfully generated /output with game files, screenshots, and dossier.json');
+const elapsed = Date.now() - startTime;
+console.log(`[AetherForge] Dossier & artifacts written to ${outputDir} in ${elapsed}ms`);
+

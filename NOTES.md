@@ -65,4 +65,5 @@ Sealed scorer verifies `/output` constraints, then AI judge (`z-ai/glm-5.3-flash
 ## Submission Ledger
 | # | Commit SHA | Title | Time (WITA) | Status | Rank / Notes |
 |---|------------|-------|-------------|--------|--------------|
-| - | Pending | - | - | Initializing | - |
+| 1 | `b3a6b82e859a3db1b75ff121a9ef19d93b97f749` | AetherForge: Arcane Duel | 15:16 WITA | Closed | All 13 pre-submit checks passed (99.6% authored, clean transcripts, 4 screenshots, tests passing). Competition entry window closed at 14:26 WITA (06:26 UTC). |
+
